@@ -1,0 +1,22 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+group="fc.plugin"
+version="0.0.1"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    testCompile 'junit:junit:4.12'
+}
+
+uploadArchives {
+    repositories.mavenDeployer {
+        // 发布到本地仓库(注意：需要事先创建好repos文件夹)
+        repository(url: 'file:/Users/fangcan/repos')
+    }
+}
